@@ -1,25 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render } from '@testing-library/angular';
 import { TodosComponent } from './todos.component';
 
-describe('TodosComponent', () => {
-  let component: TodosComponent;
-  let fixture: ComponentFixture<TodosComponent>;
+describe('Suite Todo', () => {
+  test('Debe validar que el componente se renderize correctamente', async () => {
+    //Arrage
+    const RenderResult = await render(TodosComponent, {
+      componentProperties: { },
+    });
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TodosComponent ]
-    })
-    .compileComponents();
-  }));
+    //Act
+    const componentRender = RenderResult.getByRole('texto');
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TodosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    //Assert
+    expect(componentRender);
+    expect(componentRender).toMatchSnapshot();
+  })
+})

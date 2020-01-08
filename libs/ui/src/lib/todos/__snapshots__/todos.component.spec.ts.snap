@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suite Todo Debe validar que el componente se renderize correctamente 1`] = `
+<p
+  role="texto"
+>
+  Prueba
+</p>
+`;
