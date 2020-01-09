@@ -1,3 +1,5 @@
 export interface Todo {
-    title: string;
+    id: string;
+    titulo: string;
+    completada: boolean;
 }
