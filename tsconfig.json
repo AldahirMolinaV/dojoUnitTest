@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@dojotodoangular/data": ["libs/data/src/index.ts"],
-      "@dojotodoangular/ui": ["libs/ui/src/index.ts"]
+      "@dojotodoangular/ui": ["libs/ui/src/index.ts"],
+      "@dojotodoangular/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
