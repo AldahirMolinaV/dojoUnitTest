@@ -126,5 +126,28 @@ describe('ui', () => {
     cy.get('.new-todo').type('{enter}');
     cy.get('.todo-list').get('.ng-scope').get('.view').get('.ng-binding').eq(0).dblclick();
     cy.get('.new-todo').type('{esc}');
+    cy.get('.todo-list > li').should('not.have.class', 'editing');
   });
+
+  test('Se debe mostrar el número de tareas activas en forma pluralizada. Ejemplo quedan 2 tareas pendientes.', () => {
+    cy.get('.new-todo').type('Tarea uno');
+    cy.get('.new-todo').type('{enter}');
+    cy.get('.new-todo').type('Tarea Dos');
+    cy.get('.new-todo').type('{enter}');
+    cy.get('.todo-count').should('contain.text','items left');
+  });
+
+  test('La opción “Eliminar completadas”, remueve las tareas completadas al hacer clic.', () => {
+    cy.get('.new-todo').type('Tarea uno');
+    cy.get('.new-todo').type('{enter}');
+    cy.get('.new-todo').type('Tarea Dos');
+    cy.get('.new-todo').type('{enter}');
+    cy.get('#toggle-all').click({ force: true});
+    cy.get('.clear-completed').click();
+    cy.get('.todo-list > li').should($list => {
+      expect($list).to.have.length(0)
+    })
+
+  });
+
 });
