@@ -6,7 +6,6 @@ describe('ui', () => {
   test('should render the component', () => {
     cy.get('input').type('Esto es una prueba funcional automatizada');
     cy.get('#boton').click();
-
     cy.get('input').should('have.value', 'TestEsto es una prueba funcional automatizada')
   });
 });
